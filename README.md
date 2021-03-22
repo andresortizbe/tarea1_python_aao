@@ -17,4 +17,13 @@ The methods and functions of the class are:
 5. show_results_asc:prints the dictionary results in the amount chosen by the user from highest to lowest
 
 6. show_results_desc:prints the dictionary results in the amount chosen by the user from lowest to highest
+
+
+### Includes 3 text files as an example:
+
+#### lorem.txt
+#### other.txt
+#### text.txt
+
+#### remember to enter only the name without file extension
         
