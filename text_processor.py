@@ -17,16 +17,14 @@ class Text_processor:
 
 
     def load_file(self,file_name):
-        while True:
-            try:
-                men= open(f'{file_name}.txt')
-                return men.read()
 
-
-            except FileNotFoundError:
-                mensaje =" "
-                print("Archivo No existe")
-                exit()
+        try:
+            men= open(f'{file_name}.txt')
+            return men.read()
+        except FileNotFoundError:
+             mensaje =" "
+             print("Archivo No existe")
+             exit()
 
 
     def text_charge(self,carga):
@@ -35,7 +33,8 @@ class Text_processor:
         for word in carga:
             aux = carga.count(word)
             if word not in self.repeat_words:
-                self.repeat_words[word] = aux
+                if aux > 1:
+                    self.repeat_words[word] = aux
 
 
     def sort_dic_asc(self):
@@ -51,14 +50,14 @@ class Text_processor:
         print(f'{cantidad}  Palabras De Mayor Repeticion a Menor Repeticion')
         print('___________________________________________________________-')
         for word in enumerate(self.asc[0:cantidad]):
-            print(word[1][0], self.repeat_words[word[1][0]])
+            print(word[1][0]," Aparece  ", self.repeat_words[word[1][0]], " Veces")
 
     def show_results_desc(self, cantidad):
         print('___________________________________________________________-')
         print(f'{cantidad}  Palabras De Menor Repeticion a Mayor Repeticion')
         print('___________________________________________________________-')
         for word in enumerate(self.desc[0:cantidad]):
-            print(word[1][0], self.repeat_words[word[1][0]])
+            print(word[1][0], " Aparece  ", self.repeat_words[word[1][0]]," Veces  ")
 
 
 
